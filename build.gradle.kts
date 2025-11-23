@@ -11,6 +11,12 @@ repositories {
     mavenCentral()
 }
 
+dependencies {
+    testImplementation("org.mockito:mockito-core:5.8.0")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:5.2.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.10.1")
+}
+
 intellij {
     version.set("2024.1")
     type.set("IC") // IntelliJ IDEA Community Edition
@@ -86,5 +92,14 @@ tasks {
     // Disable buildSearchableOptions for faster builds
     buildSearchableOptions {
         enabled = false
+    }
+
+    test {
+        useJUnitPlatform()
+        testLogging {
+            events("passed", "skipped", "failed")
+            exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+            showStandardStreams = false
+        }
     }
 }
