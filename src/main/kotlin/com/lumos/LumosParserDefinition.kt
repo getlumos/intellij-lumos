@@ -2,12 +2,14 @@ package com.lumos
 
 import com.intellij.lang.ASTNode
 import com.intellij.lang.ParserDefinition
+import com.intellij.lang.PsiBuilder
 import com.intellij.lang.PsiParser
 import com.intellij.lexer.Lexer
 import com.intellij.openapi.project.Project
 import com.intellij.psi.FileViewProvider
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
+import com.intellij.psi.tree.IElementType
 import com.intellij.psi.tree.IFileElementType
 import com.intellij.psi.tree.TokenSet
 
@@ -66,7 +68,7 @@ class LumosLexer : com.intellij.lexer.LexerBase() {
 
 // Minimal parser implementation
 class LumosParser : PsiParser {
-    override fun parse(root: IFileElementType, builder: com.intellij.lang.PsiBuilder): ASTNode {
+    override fun parse(root: IElementType, builder: PsiBuilder): ASTNode {
         val marker = builder.mark()
         while (!builder.eof()) {
             builder.advanceLexer()

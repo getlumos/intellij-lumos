@@ -1,7 +1,7 @@
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.9.21"
-    id("org.jetbrains.intellij") version "1.17.2"
+    id("org.jetbrains.kotlin.jvm") version "2.0.0"
+    id("org.jetbrains.intellij") version "1.17.4"
 }
 
 group = "com.lumos"
@@ -21,8 +21,8 @@ intellij {
     version.set("2024.1")
     type.set("IC") // IntelliJ IDEA Community Edition
 
-    // Include LSP plugin dependency
-    plugins.set(listOf("com.redhat.devtools.lsp4ij:0.0.2"))
+    // Include LSP plugin dependency - latest stable version
+    plugins.set(listOf("com.redhat.devtools.lsp4ij:0.9.0"))
 }
 
 tasks {
@@ -40,7 +40,6 @@ tasks {
         untilBuild.set("243.*")
 
         pluginDescription.set("""
-            <![CDATA[
             LUMOS language support for IntelliJ IDEA and Rust Rover.
 
             <h3>Features</h3>
@@ -60,11 +59,9 @@ tasks {
             </ol>
 
             <p>Learn more at <a href="https://lumos-lang.org">lumos-lang.org</a></p>
-            ]]>
         """.trimIndent())
 
         changeNotes.set("""
-            <![CDATA[
             <h3>Version 0.1.0</h3>
             <ul>
               <li>Initial release</li>
@@ -75,7 +72,6 @@ tasks {
               <li>Real-time diagnostics</li>
               <li>Hover information</li>
             </ul>
-            ]]>
         """.trimIndent())
     }
 

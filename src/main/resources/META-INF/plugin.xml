@@ -7,8 +7,6 @@
     <depends>com.intellij.modules.platform</depends>
     <depends>com.redhat.devtools.lsp4ij</depends>
 
-    <resource-bundle>messages.LumosBundle</resource-bundle>
-
     <extensions defaultExtensionNs="com.intellij">
         <!-- File type registration -->
         <fileType
@@ -25,28 +23,19 @@
     </extensions>
 
     <extensions defaultExtensionNs="com.redhat.devtools.lsp4ij">
-        <!-- LSP server support provider -->
+        <!-- LSP server registration -->
         <server
             id="lumosLanguageServer"
             name="LUMOS Language Server"
-            factoryClass="com.lumos.LumosLspServerSupportProvider">
+            factoryClass="com.lumos.LumosLanguageServerFactory">
             <description>
-                <![CDATA[
-                LUMOS Language Server provides:
-                <ul>
-                  <li>Syntax validation and error detection</li>
-                  <li>Auto-completion for types and attributes</li>
-                  <li>Hover documentation</li>
-                  <li>Code formatting</li>
-                </ul>
-                ]]>
+                LUMOS Language Server provides syntax validation, auto-completion, hover documentation, and code formatting for .lumos files.
             </description>
         </server>
-    </extensions>
 
-    <projectListeners>
-        <listener
-            class="com.lumos.LumosLspServerSupportProvider"
-            topic="com.intellij.platform.lsp.api.LspServerSupportProvider"/>
-    </projectListeners>
+        <!-- Language mapping -->
+        <languageMapping
+            language="LUMOS"
+            serverId="lumosLanguageServer"/>
+    </extensions>
 </idea-plugin>
