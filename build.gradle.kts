@@ -40,37 +40,54 @@ tasks {
         untilBuild.set("243.*")
 
         pluginDescription.set("""
-            LUMOS language support for IntelliJ IDEA and Rust Rover.
+            LUMOS language support for IntelliJ IDEA, Rust Rover, and CLion.
+
+            <p>Write once in <code>.lumos</code> schema language → Generate type-safe Rust + TypeScript for Solana development.</p>
 
             <h3>Features</h3>
             <ul>
-              <li>Syntax highlighting for .lumos files</li>
-              <li>Auto-completion for types and attributes</li>
-              <li>Real-time error diagnostics</li>
-              <li>Hover documentation</li>
-              <li>Integration with LUMOS Language Server (lumos-lsp)</li>
+              <li><strong>File Type Recognition</strong> - .lumos files automatically recognized</li>
+              <li><strong>Syntax Highlighting</strong> - Full token coverage with customizable colors</li>
+              <li><strong>Auto-Completion</strong> - Smart suggestions for types and attributes</li>
+              <li><strong>Hover Documentation</strong> - Inline type information and descriptions</li>
+              <li><strong>LSP Integration</strong> - Powered by LUMOS Language Server</li>
             </ul>
 
             <h3>Getting Started</h3>
             <ol>
-              <li>Install LUMOS CLI: <code>cargo install lumos-lsp</code></li>
-              <li>Open a .lumos file to activate language support</li>
-              <li>Start coding with full IDE assistance!</li>
+              <li>Install LUMOS Language Server: <code>cargo install lumos-lsp</code></li>
+              <li>Create a .lumos file in your project</li>
+              <li>Start writing schemas with full IDE support!</li>
             </ol>
+
+            <h3>Example</h3>
+            <pre><code>#[solana]
+#[account]
+struct PlayerAccount {
+    wallet: PublicKey,
+    score: u64,
+    level: u16,
+}</code></pre>
 
             <p>Learn more at <a href="https://lumos-lang.org">lumos-lang.org</a></p>
         """.trimIndent())
 
         changeNotes.set("""
-            <h3>Version 0.1.0</h3>
+            <h3>Version 0.1.0 - Initial Release</h3>
             <ul>
-              <li>Initial release</li>
-              <li>File type recognition for .lumos files</li>
-              <li>LSP client integration with lumos-lsp server</li>
-              <li>Syntax highlighting</li>
-              <li>Auto-completion</li>
-              <li>Real-time diagnostics</li>
-              <li>Hover information</li>
+              <li><strong>File Type Recognition</strong> - .lumos files automatically recognized with custom icon</li>
+              <li><strong>Syntax Highlighting</strong> - Full token coverage (keywords, types, attributes, comments)</li>
+              <li><strong>LSP Integration</strong> - Connected to lumos-lsp language server</li>
+              <li><strong>Auto-Completion</strong> - Smart suggestions for types (PublicKey, u64, Vec, Option) and attributes</li>
+              <li><strong>Hover Documentation</strong> - Type information and descriptions on hover</li>
+              <li><strong>Color Customization</strong> - Customize syntax colors in Settings → Editor → Color Scheme → LUMOS</li>
+              <li><strong>Multi-IDE Support</strong> - Works with IntelliJ IDEA, Rust Rover, and CLion (2024.1+)</li>
+            </ul>
+
+            <h3>Requirements</h3>
+            <ul>
+              <li>LUMOS Language Server: <code>cargo install lumos-lsp</code></li>
+              <li>IntelliJ Platform 2024.1 or newer</li>
             </ul>
         """.trimIndent())
     }
