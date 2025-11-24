@@ -1,0 +1,66 @@
+// LUMOS Plugin Manual Test File
+// Copy this into RustRover to test all features
+
+#[solana]
+#[account]
+struct PlayerAccount {
+    /// Player's wallet address
+    wallet: PublicKey,
+
+    /// Current score
+    score: u64,
+
+    /// Player level (1-100)
+    level: u16,
+
+    /// Inventory items
+    items: Vec<u8>,
+
+    /// Optional email
+    email: Option<String>,
+
+    /// Last login timestamp
+    last_login: i64,
+}
+
+#[solana]
+enum GameState {
+    /// Game is currently active
+    Active,
+
+    /// Game is paused
+    Paused,
+
+    /// Game finished with final score
+    Finished(u64),
+}
+
+/* Multi-line block comment
+   for testing comment highlighting
+   and syntax support */
+
+#[solana]
+struct Config {
+    max_players: u32,
+    enabled: bool,
+    min_level: u8,
+
+    // Decimal number
+    price: u64,
+
+    // Hex number
+    hex_value: u64, // 0xFF
+
+    // Binary number
+    binary_value: u8, // 0b1010
+}
+
+// Test auto-completion by typing:
+// 1. "Pub" -> should suggest PublicKey
+// 2. "u" -> should suggest u8, u16, u32, u64, u128
+// 3. "#[" -> should suggest #[solana], #[account]
+
+// Test diagnostics by uncommenting this:
+// struct Broken {
+//     field: UndefinedType,
+// }
