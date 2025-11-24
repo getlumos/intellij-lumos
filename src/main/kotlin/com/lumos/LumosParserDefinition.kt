@@ -66,12 +66,14 @@ class LumosLexer : com.intellij.lexer.LexerBase() {
     private var currentTokenType: IElementType? = null
     private var currentTokenStart: Int = 0
     private var currentTokenEnd: Int = 0
+    private var attributeDepth: Int = 0  // Track if we're inside attributes
 
     override fun start(buffer: CharSequence, startOffset: Int, endOffset: Int, initialState: Int) {
         this.buffer = buffer
         this.startOffset = startOffset
         this.endOffset = endOffset
         this.currentOffset = startOffset
+        this.attributeDepth = 0
         advance()
     }
 
@@ -126,6 +128,7 @@ class LumosLexer : com.intellij.lexer.LexerBase() {
             currentOffset += 2
             currentTokenEnd = currentOffset
             currentTokenType = LumosTokenTypes.ATTRIBUTE_START
+            attributeDepth++  // Entering attribute
             return
         }
 
@@ -133,6 +136,7 @@ class LumosLexer : com.intellij.lexer.LexerBase() {
             currentOffset++
             currentTokenEnd = currentOffset
             currentTokenType = LumosTokenTypes.ATTRIBUTE_END
+            attributeDepth--  // Exiting attribute
             return
         }
 
@@ -305,9 +309,8 @@ class LumosLexer : com.intellij.lexer.LexerBase() {
     }
 
     private fun inAttribute(): Boolean {
-        // Simple heuristic: check if we're inside attribute brackets
-        // This is a simplified implementation
-        return false
+        // Check if we're currently inside attribute brackets
+        return attributeDepth > 0
     }
 }
 

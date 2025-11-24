@@ -85,17 +85,17 @@ class LumosSyntaxHighlighter : SyntaxHighlighterBase() {
 
         val SOLANA_TYPE = TextAttributesKey.createTextAttributesKey(
             "LUMOS_SOLANA_TYPE",
-            DefaultLanguageHighlighterColors.CLASS_NAME
+            DefaultLanguageHighlighterColors.INSTANCE_FIELD
         )
 
         val OPTION_TYPE = TextAttributesKey.createTextAttributesKey(
             "LUMOS_OPTION_TYPE",
-            DefaultLanguageHighlighterColors.CLASS_NAME
+            DefaultLanguageHighlighterColors.INSTANCE_FIELD
         )
 
         val CUSTOM_TYPE = TextAttributesKey.createTextAttributesKey(
             "LUMOS_CUSTOM_TYPE",
-            DefaultLanguageHighlighterColors.CLASS_NAME
+            DefaultLanguageHighlighterColors.INSTANCE_FIELD
         )
 
         val ATTRIBUTE_BRACKETS = TextAttributesKey.createTextAttributesKey(
