@@ -1,5 +1,5 @@
 <idea-plugin>
-    <id>com.lumos.intellij</id>
+    <id>com.getlumos.plugin</id>
     <name>LUMOS</name>
     <vendor email="rz1989s@gmail.com" url="https://lumos-lang.org">LUMOS Language</vendor>
 
