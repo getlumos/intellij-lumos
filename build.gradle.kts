@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    testImplementation("org.mockito:mockito-core:5.21.0")
+    testImplementation("org.mockito:mockito-core:5.22.0")
     testImplementation("org.mockito.kotlin:mockito-kotlin:6.2.1")
     testImplementation("org.junit.jupiter:junit-jupiter:6.0.2")
 }
